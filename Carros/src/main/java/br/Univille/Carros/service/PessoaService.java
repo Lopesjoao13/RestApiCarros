@@ -1,9 +1,7 @@
 package br.Univille.Carros.service;
 
-import br.Univille.Carros.entity.Carro;
 import br.Univille.Carros.entity.Pessoa;
-import br.Univille.Carros.repository.CarroRepository;
-import br.Univille.Carros.repository.PessoaReposirory;
+import br.Univille.Carros.repository.PessoaRepository;
 import org.apache.logging.log4j.util.Strings;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +10,9 @@ import java.util.List;
 @Service
 public class PessoaService {
 
-    private final PessoaReposirory repository;
+    private final PessoaRepository repository;
 
-    public PessoaService(PessoaReposirory repository){
+    public PessoaService(PessoaRepository repository){
         this.repository = repository;
     }
 
@@ -22,11 +20,10 @@ public class PessoaService {
         return repository.findAll();
     }
 
-    /*
     public Pessoa findById(Long id) {
-        return null;
+        return repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Pessoa com ID " + id + " não encontrada."));
     }
-    */
 
     public Pessoa insert(Pessoa pessoa) {
         if(Strings.isBlank(pessoa.getNome())){

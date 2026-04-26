@@ -19,8 +19,9 @@ public class CarroService {
         return repository.findAll();
     }
 
-    public ClassValue<Object> findById(Long id) {
-        return null;
+    public Carro findById(Long id) {
+        return repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Carro com ID " + id + " não encontrado."));
     }
 
     public Carro insert(Carro carro) {

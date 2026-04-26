@@ -1,17 +1,20 @@
 package br.Univille.Carros.entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
 public class Marca {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToMany
     private String nome;
+
+    @OneToMany(mappedBy = "marca")
+    private List<Carro> carros = new ArrayList<>();
 
     public Long getId() {
         return id;

@@ -23,14 +23,11 @@ public class CarroController {
     }
 
 
-    /*
-    @GetMapping
-    @RequestMapping("/{id}")
-    public Carro findAll(@PathVariable("id") Long id){
+    @GetMapping("/{id}")
+    public Carro findById(@PathVariable("id") Long id) {
         return carroService.findById(id);
     }
-    */
-
+    
     @PostMapping
     public Carro create(@RequestBody Carro pessoa){
         return carroService.insert(pessoa);

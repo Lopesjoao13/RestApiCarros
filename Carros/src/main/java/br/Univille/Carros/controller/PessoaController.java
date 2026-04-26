@@ -22,14 +22,10 @@ public class PessoaController {
         return pessoaService.findAll();
     }
 
-
-    /*
-    @GetMapping
-    @RequestMapping("/{id}")
-    public Pessoa findAll(@PathVariable("id") Long id){
-        return pessoaService.findById(id).get();
+    @GetMapping("/{id}")
+    public Pessoa findById(@PathVariable("id") Long id) {
+        return pessoaService.findById(id);
     }
-     */
 
     @PostMapping
     public Pessoa create(@RequestBody Pessoa pessoa){
@@ -37,13 +33,13 @@ public class PessoaController {
     }
 
     @PutMapping
-    public Pessoa update(@RequestBody Pessoa carro){
-        return pessoaService.update(carro);
+    public Pessoa update(@RequestBody Pessoa pessoa){ // Antes estava "Pessoa carro"
+        return pessoaService.update(pessoa);
     }
 
     @DeleteMapping
-    public void delete(@RequestBody Pessoa carro){
-        pessoaService.delete(carro);
+    public void delete(@RequestBody Pessoa pessoa){
+        pessoaService.delete(pessoa);
     }
 
 

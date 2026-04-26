@@ -2,6 +2,8 @@ package br.Univille.Carros.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Carro {
 
@@ -13,7 +15,10 @@ public class Carro {
     private String conbustivel;
 
     @ManyToOne
-    private Pessoa pessoaId;
+    private Pessoa pessoa;
+
+    @ManyToOne
+    private Marca marca;
 
     public Long getId() {
         return id;
@@ -48,12 +53,13 @@ public class Carro {
     }
 
     public Pessoa getPessoa() {
-        return pessoaId;
+        return pessoa;
     }
 
-    public void setPessoa(Pessoa pessoaId) {
-        this.pessoaId = pessoaId;
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
     }
+
 
 
     @Override
@@ -63,7 +69,7 @@ public class Carro {
                 ", modelo='" + modelo + '\'' +
                 ", ano='" + ano + '\'' +
                 ", conbustivel='" + conbustivel + '\'' +
-                ", pessoaId=" + pessoaId +
+                ", pessoaId=" + pessoa +
                 '}';
     }
 }
