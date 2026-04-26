@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/pessoa")
+@RequestMapping("/api/carro")
 public class CarroController {
 
     private CarroService carroService;
 
-    public CarroController(CarroService pessoaService) {
-        this.carroService = pessoaService;
+    public CarroController(CarroService carroService) {
+        this.carroService = carroService;
     }
 
 
@@ -23,11 +23,13 @@ public class CarroController {
     }
 
 
+    /*
     @GetMapping
     @RequestMapping("/{id}")
     public Carro findAll(@PathVariable("id") Long id){
         return carroService.findById(id);
     }
+    */
 
     @PostMapping
     public Carro create(@RequestBody Carro pessoa){

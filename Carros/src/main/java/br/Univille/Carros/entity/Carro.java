@@ -13,7 +13,7 @@ public class Carro {
     private String conbustivel;
 
     @ManyToOne
-    private Marca marca;
+    private Pessoa pessoaId;
 
     public Long getId() {
         return id;
@@ -47,13 +47,14 @@ public class Carro {
         this.conbustivel = conbustivel;
     }
 
-    public Marca getMarca() {
-        return marca;
+    public Pessoa getPessoa() {
+        return pessoaId;
     }
 
-    public void setMarca(Marca marca) {
-        this.marca = marca;
+    public void setPessoa(Pessoa pessoaId) {
+        this.pessoaId = pessoaId;
     }
+
 
     @Override
     public String toString() {
@@ -62,7 +63,7 @@ public class Carro {
                 ", modelo='" + modelo + '\'' +
                 ", ano='" + ano + '\'' +
                 ", conbustivel='" + conbustivel + '\'' +
-                ", marca=" + marca +
+                ", pessoaId=" + pessoaId +
                 '}';
     }
 }
